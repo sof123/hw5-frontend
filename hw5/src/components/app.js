@@ -1,4 +1,9 @@
-import {setLocation, getLocation} from '../location'
+//import {setLocation, getLocation} from '../location'
+import React, { Component, PropTypes } from 'react'
+import {connect } from 'react-redux'
+import LandingItem from './Landing'
+import MainItem from './Main'
+import ProfileItem from './Profile'
 
 export const App = ({location}) =>
 {
@@ -6,7 +11,7 @@ export const App = ({location}) =>
   {
     return (
       <div>
-        <Main />
+        <MainItem/>
       </div>
     );
   }
@@ -14,7 +19,7 @@ export const App = ({location}) =>
   {
     return (
       <div>
-        <Landing />
+        <LandingItem/>
       </div>
     );
   }
@@ -22,7 +27,7 @@ export const App = ({location}) =>
   {
     return (
       <div>
-        <Profile />
+        <ProfileItem/>
       </div>
     );
   }

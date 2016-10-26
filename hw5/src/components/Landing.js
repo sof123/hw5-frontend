@@ -1,6 +1,6 @@
-import {setLocation, getLocation} from '../location'
+//import {setLocation, getLocation} from '../location'
 import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
+import  {connect } from 'react-redux'
 
 export const LandingItem = ({login}) =>
 (
