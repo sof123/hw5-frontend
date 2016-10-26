@@ -1,12 +1,14 @@
-export default class Profile extends React.Component
-{
-  render()
-  {
-    return (
+import {setLocation, getLocation} from '../location'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+
+export const ProfileItem = ({logout, goToMain}) =>
+(
       <div>
         <link rel="stylesheet" type="text/css" href="styles.css" />
         <meta name="author" content="Simi Fagbemi" />
-        <a href="main.html">Return to main page</a>
+        <input type="button" defaultValue="Return to main page" onClick={goToMain} id="goToMainId" />
+        <input type="button" defaultValue="logout" onClick={logout} id="logoutId" />
         <table>
           <tbody><tr>
               <td>Current profile picture </td>
@@ -56,6 +58,16 @@ export default class Profile extends React.Component
               </td></tr>
           </tbody></table>
       </div>
-    );
-  }
+)
+
+ProfileItem.propTypes = {
+    id: PropTypes.number.isRequired,
+    location: PropTypes.symbol.isRequired
 }
+
+export default connect(null, (dispatch, ownProps) => {
+        return {
+            logout: () => dispatch({ type: 'goToLandingToDo', id: ownProps.id }),
+            goToMain: () => dispatch({ type: 'goToMainToDo', id: ownProps.id })
+        }
+    })(ProfileItem)

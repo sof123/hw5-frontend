@@ -1,8 +1,9 @@
-export default class Landing extends React.Component {
+import {setLocation, getLocation} from '../location'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 
-  render()
-  {
-    return (
+export const LandingItem = ({login}) =>
+(
       <div>
         <meta name="author" content="Simi Fagbemi" />
         Create a new account
@@ -62,11 +63,19 @@ export default class Landing extends React.Component {
                 <span id="PasswordText"></span>
               </td>
             </tr>
-            <tr><td colSpan={2}><input type="button" defaultValue="Login" id="update" onclick="login()" /><br />
+            <tr><td colSpan={2}><input type="button" defaultValue="Login" id="update" onClick={login} /><br />
               </td></tr>
           </tbody></table>
       </div>
-    )
-  }
+)
 
+LandingItem.propTypes = {
+    id: PropTypes.number.isRequired,
+    location: PropTypes.symbol.isRequired
 }
+
+export default connect(null, (dispatch, ownProps) => {
+        return {
+            login: () => dispatch({ type: 'loginToDo', id: ownProps.id })
+        }
+    })(LandingItem)
