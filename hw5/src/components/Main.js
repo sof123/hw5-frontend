@@ -1,6 +1,6 @@
-//import {setLocation, getLocation} from '../location'
 import React, { Component, PropTypes } from 'react'
 import  {connect } from 'react-redux'
+
 
 export const MainItem = ({ logout, goToProfile, updateHeadline, getArticles }) =>
   (

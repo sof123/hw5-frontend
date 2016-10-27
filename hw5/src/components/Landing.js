@@ -8,7 +8,7 @@ export const LandingItem = ({login}) =>
         <meta name="author" content="Simi Fagbemi" />
         Create a new account
         <br /><br />
-        <form id="signIn" name="submitForm" method="GET" action="main.html">
+        <form id="signIn" name="submitForm" method="" action="" onSubmit={login}>
           <table className="form">
             <tbody><tr>
                 <td>Account Name</td>
@@ -69,11 +69,7 @@ export const LandingItem = ({login}) =>
       </div>
 )
 
-LandingItem.propTypes = {
-    id: PropTypes.number.isRequired,
-    location: PropTypes.symbol.isRequired
-}
-
+//dispatching  method to reducer
 export default connect(null, (dispatch, ownProps) => {
         return {
             login: () => dispatch({ type: 'loginToDo', id: ownProps.id })

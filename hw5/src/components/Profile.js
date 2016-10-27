@@ -60,10 +60,11 @@ export const ProfileItem = ({logout, goToMain}) =>
       </div>
 )
 
-ProfileItem.propTypes = {
-    id: PropTypes.number.isRequired,
-    location: PropTypes.symbol.isRequired
+/*ProfileItem.propTypes = {
+    //id: PropTypes.number.isRequired,
+    //location: PropTypes.symbol.isRequired
 }
+*/
 
 export default connect(null, (dispatch, ownProps) => {
         return {
